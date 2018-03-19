@@ -6,9 +6,7 @@ int isBadVersion(int version) {
 
 int divide(int start, int end) {
     int m = start + (end - start)/2;
-    printf("--- m: %d, start: %d, end: %d\n", m, start, end);
     if (isBadVersion(m)) {
-        printf("m: %d, start: %d, end: %d\n", m, start, end);
         if (end - start == 0) 
             return m;
 	return divide(start, m);

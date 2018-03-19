@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct {
     int key;
     int index;
@@ -11,7 +14,7 @@ void insert(cel *hash, int val, int n, int idx) {
     hash[i].index = idx;
 }
 
-int* search(cel *hash, int val, int n, int idx) {
+int search(cel *hash, int val, int n, int idx) {
     int i = val % n;
     while (hash[i].index != -1 && hash[i].key != val) 
         i = (i + 1) % n;
@@ -40,4 +43,13 @@ int* twoSum(int* nums, int numsSize, int target) {
         else insert(hashTable, nums[i], numsSize, i);
     }
     return res;
+}
+
+int main () 
+{
+    int nums[4] = {2, 7, 11, 15};
+    int target = 9, *result;
+    result = twoSum(nums, 4, target);
+    printf("[%d, %d]", result[0], result[1]);
+    return 0;
 }
